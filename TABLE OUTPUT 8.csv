@@ -1,0 +1,3 @@
+Field,Type,Null,Key,Default,Extra
+sr_no,int,YES,,NULL,
+amt_no,int,YES,,NULL,

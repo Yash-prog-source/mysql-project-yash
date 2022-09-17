@@ -1,0 +1,6 @@
+Field,Type,Null,Key,Default,Extra
+e_mpone,int,YES,,NULL,
+f_name,varchar(20),YES,,NULL,
+l_name,varchar(23),YES,,NULL,
+m_name,varchar(17),YES,,NULL,
+dept,varchar(10),YES,,NULL,

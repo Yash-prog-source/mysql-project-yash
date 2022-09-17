@@ -1,0 +1,83 @@
+create database employee1;
+use employee1;
+create table employee2 (cust_no int(18),Fname varchar(17),Lname varchar(19));
+DESC employee2;
+create table add_details (code_no int(18),add1 varchar(20), add2 varchar(19), state varchar(22),city varchar(21), pincode int(20));
+DESC add_details;
+insert into employee2 values (101, "yash","kamble");
+insert into employee2 values (102, "sam","kamble");
+insert into employee2 values (103, "arjun","kamble");
+select*from  employee2;
+insert into add_details values (101,"vimal nagar","dabge chock","maharashtra","pune",442701);
+insert into add_details values (102,"nagar","gandhi choke","maharashtra","pune",442701);
+insert into add_details values (103,"nagar","mahakal choke","maharashtra","pune",442701);
+select*from add_details;
+select add1,add2 from add_details where code_no in(select cust_no from employee2 where Fname="yash" and Lname="kamble");
+create table employee2 (cust_no int(18),Fname varchar(17),Lname varchar(19));
+DESC employee2;
+insert into employee2 values (101, "yash","kamble");
+insert into employee2 values (102, "sam","kamble");
+insert into employee2 values (103, "arjun","kamble");
+select*from  employee2;
+create table acc_employee (code_no int(17), acc_no int(21));
+desc acc_employee;
+insert into acc_employee values (101,12300000);
+insert into acc_employee values (10,12340000);
+insert into acc_employee values (103,12350000);
+select*from acc_employee;
+create table debt_customer1 (sr_no int(18),amt_no int(23));
+desc  debt_customer1;
+insert into debt_customer1 values (101,4500);
+insert into debt_customer1 values (102,5500);
+insert into debt_customer1 values (103,5600);
+select*from debt_customer1 ;
+select Fname,Lname from employee2 where cust_no;
+select acc_no from acc_employee where code_no;
+ select sr_no  from debt_customer1  where amt_no>5000;
+create table emp_mstr12 (e_mpone int(16),f_name varchar(20),l_name varchar(23),m_name varchar(17),dept varchar(10),desg varchar(24),branch_no int(16));
+desc emp_mstr12;
+create table branch_mstr1(name varchar(25),b_no int(17));
+desc branch_mstr1;
+insert into emp_mstr12 values (1011,"yash","kamble","prakash","sport","trainer",2011);
+insert into emp_mstr12 values (1012,"alka","kholi","vicky","sport","trainer",2012);
+insert into emp_mstr12 values (1013,"ramu","modi","vikram","sport","trainer",2013);
+select*from emp_mstr1;
+insert into branch_mstr1 values("sam",2011);
+insert into branch_mstr1 values("sunny",2012);
+insert into branch_mstr1 values("Angela",2013);
+select*from branch_mstr1;
+ select e_mpone,f_name,l_name,m_name,dept,desg,branch_no,name from emp_mstr12  inner join 
+branch_mstr1 on emp_mstr12.branch_no= branch_mstr1.b_no;
+
+create table emp_mstr123 (e_mpone int(16),f_name varchar(20),l_name varchar(23),m_name varchar(17),dept varchar(10));
+desc emp_mstr123 ;
+insert into emp_mstr1 values (1011,"yash","kamble","prakash","sport","trainer",2011);
+insert into emp_mstr1 values (1012,"alka","kholi","vicky","sport","trainer",2012);
+insert into emp_mstr1 values (1013,"ramu","modi","vikram","sport","trainer",2013);
+select*from emp_mstr1;
+create table emp_detail1 (code_no int(17), cntc_type varchar(19),cntc_data varchar(100));
+desc emp_detail1;
+insert into emp_detail1 values (1011,"email","yy@gmail.com");
+insert into emp_detail1 values (1012,"email","alka@gmail.com");
+insert into emp_detail1 values (1013,"email","ramu@gmail.com");
+select*from emp_detail1;
+select e_mpone,f_name,l_name,m_name,dept,code_no,cntc_type,cntc_data from emp_mstr1 left 
+outer join  emp_detail1 on emp_mstr1.e_mpone=emp_detail1.code_no ;
+ select e_mpone,f_name,l_name,m_name,dept,code_no,cntc_type,cntc_data from   emp_mstr1  right 
+outer join emp_detail1 on emp_mstr1.e_mpone=emp_detail1.code_no; 
+
+create table emp_mstr1234 (e_mpone int(16),f_name varchar(20),l_name varchar(23));
+desc emp_mstr1234 ;
+insert into emp_mstr1234 values (1011,"yash","prakash");
+insert into emp_mstr1234 values (1012,"alka","vicky");
+insert into emp_mstr1234 values (1013,"ramu","vikram");
+select*from emp_mstr1234;
+create table emp_detail12 ( code_no int(17),pincode int(20));
+desc emp_detail12;
+insert into emp_detail12  values (1011,442710);
+insert into emp_detail12  values (1012,442711);
+insert into emp_detail12  values (1013,442712);
+select*from emp_detail12 ;
+select * from emp_mstr1234 where e_mpone  
+in (select code_no from emp_detail12 where code_no like 'C%' 
+and pincode not in (select pincode from emp_detail12  where code_no like 'B%')); 

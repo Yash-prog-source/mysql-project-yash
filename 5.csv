@@ -1,0 +1,3 @@
+Field,Type,Null,Key,Default,Extra
+name,varchar(25),YES,,NULL,
+b_no,int,YES,,NULL,

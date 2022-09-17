@@ -1,0 +1,4 @@
+Field,Type,Null,Key,Default,Extra
+cust_no,int,YES,,NULL,
+Fname,varchar(17),YES,,NULL,
+Lname,varchar(19),YES,,NULL,

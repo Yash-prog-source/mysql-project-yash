@@ -1,0 +1,7 @@
+Field,Type,Null,Key,Default,Extra
+code_no,int,YES,,NULL,
+add1,varchar(20),YES,,NULL,
+add2,varchar(19),YES,,NULL,
+state,varchar(22),YES,,NULL,
+city,varchar(21),YES,,NULL,
+pincode,int,YES,,NULL,

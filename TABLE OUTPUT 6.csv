@@ -1,0 +1,3 @@
+Field,Type,Null,Key,Default,Extra
+code_no,int,YES,,NULL,
+acc_no,int,YES,,NULL,
